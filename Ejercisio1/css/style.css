@@ -1,0 +1,15 @@
+  h1 {
+    color: blue;
+}
+  
+div{
+    margin: 5px;
+    background-color: beige;
+    padding: 10px;
+    max-width: 50%;
+    border: 3px solid rgb(187, 71, 255);
+    border-radius: 20px;
+    text-align: justify;
+    box-shadow: 8px 4px 12px 0px rgb(187, 71, 255);
+    translate: 40%;
+}

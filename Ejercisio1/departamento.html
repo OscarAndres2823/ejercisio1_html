@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departamento de Colombia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="departamento-info">
+    <h1 id="nombre-departamento">Departamento</h1>
+
+    <img id="bandera" src="" alt="Bandera del Departamento" class="bandera">
+
+    <ul id="caracteristicas"></ul>
+  </div>
+
+  <a href="index.html" class="volver">Volver a la Página Principal</a>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const dep = urlParams.get('dep');
+
+    const departamentos = {
+      antioquia: {
+        nombre: 'Antioquia',
+        bandera: 'img/antioquia.png',
+        caracteristicas: [
+          'Capital: Medellín',
+          'Clima: Templado',
+          'Economía: Café',
+          'Turismo: Piedra del Peñol',
+          'Gentilicio: Antioqueño'
+        ]
+      },
+      valle: {
+        nombre: 'Valle del Cauca',
+        bandera: 'img/valle.png',
+        caracteristicas: [
+          'Capital: Cali',
+          'Clima: Cálido',
+          'Economía: Azúcar',
+          'Turismo: Feria de Cali',
+          'Gentilicio: Vallecaucano'
+        ]
+      },
+      bolivar: {
+        nombre: 'Bolívar',
+        bandera: 'img/bolivar.png',
+        caracteristicas: [
+          'Capital: Cartagena',
+          'Clima: Cálido',
+          'Economía: Turismo',
+          'Turismo: Ciudad Amurallada',
+          'Gentilicio: Bolivarense'
+        ]
+      },
+      cundinamarca: {
+        nombre: 'Cundinamarca',
+        bandera: 'img/cundinamarca.png',
+        caracteristicas: [
+          'Capital: Bogotá',
+          'Clima: Frío',
+          'Economía: Servicios',
+          'Turismo: Monserrate',
+          'Gentilicio: Cundinamarqués'
+        ]
+      },
+      meta: {
+        nombre: 'Meta',
+        bandera: 'img/meta.png',
+        caracteristicas: [
+          'Capital: Villavicencio',
+          'Clima: Cálido',
+          'Economía: Agricultura',
+          'Turismo: Parque Los Ocarros',
+          'Gentilicio: Metense'
+        ]
+      }
+    };
+
+    if (departamentos[dep]) {
+      const departamento = departamentos[dep];
+      document.getElementById('nombre-departamento').textContent = departamento.n
+      document.getElementById('bandera').src = departamento.bandera;
+
+      const lista = document.getElementById('caracteristicas');
+      lista.innerHTML = '';
+      departamento.caracteristicas.forEach(c => {
+        const li = document.createElement('li');
+        li.textContent = c;
+        lista.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
